@@ -1,0 +1,360 @@
+#basically like all my python notes and stuff
+
+
+
+import random
+import datetime
+import math
+
+
+
+print('hello world')
+
+
+#Variables and Data Types  ___________________________________________________________-
+
+  #variable types don't need to declared & can even change type even after being set
+
+  #types of data: 
+
+fruit_1, fruit2 = "apples", "oranges" #can set multiple at once
+age_str = "one"
+age_int = 1
+age_float = 1.0
+age_complex = 1j
+age_list = ["1", "2", "3"]
+age_tuple = ("1", '2', '3') #tuples can't be modified whereas lists can 
+age_set = {'1', '2', '3'}
+
+convert_int = float(age_int) #convert data types
+
+# random-- no built in random function but you can import it 
+print(random.rangrage(1,10))
+
+cast_float = float(1) #casts it as a float, 1 becomes 1.0
+cast_str = str(2) #becomes '2' -- string not int 
+
+
+#Strings ______________________________________________________________________________________
+
+
+#first char of string is 0, then count on 
+splicing_orig = 'Testing'
+splicing_final = splicing_orig[0,4] # 0 can b ommited, last number is exclusive. result is Test
+
+modifier_test = 'Testing'
+modifier_test.upper() #string becomes uppercase, TESTING
+modifier_test.lower() #string becomes lowercase, testing
+
+combining_strings = modifier_test + " " + splicing_final #combines strings
+
+
+# we can't combine strings and numbers, but we can format them 
+
+format_txt = "hi i'm arc and i'm {}" #numbers are inserted in the curly braces
+format_full = format_txt(age_int)
+
+
+# Booleans ___________________________________________________________________________________________
+
+  # Booleans represent true or false values
+
+boolean_a = 1
+boolean_b = 2
+
+boolean_c = boolean_b > boolean_a #True, boolean
+
+
+
+
+
+# If Else Statements _________________________________________________________________________________
+
+if_a = 10
+if_b = 5
+
+if if_a > if_b: 
+    if_c: 20 
+elif if_b > if_a:   #elif > else if, if prev condition not true try this
+    if_c = 1
+else:               # when none of the previous conditions work
+    if_c = 15
+
+if if_a > if_b: if_c = 20    #can be on same line if there's only one 
+
+
+
+# Loops ___________________________________________________________________________________
+
+  #1. While Loops
+
+while_i = 1
+while_temp = 0
+
+while while_i < 6:
+    while_temp += 1
+    while_i += 1
+
+# while_temp is 5 bc while_i goes from 1 to 6 exclusive
+
+
+    #2. For Loops
+
+animals = ['rat', 'capybara', 'baby rat']
+for x in animals:
+    print(x)   
+
+for x in 'rat':
+    print(x)
+
+
+
+# Functions ________________________
+
+# Function : Block of code that only runs when it's called  // This would have been helpful earlier on woops
+
+
+def function_test():
+  print("i love coding1!!!!1111!!!!")
+
+# function_test()     (executes the function)
+
+# arguments: specified after the function name 
+
+
+def rat_function(rat):
+    print(rat + "rat")
+
+rat_function("cute")   
+rat_function('bubonic')
+
+
+# lambda = anonymous function ( lambda arguments : expression )
+
+
+
+# Arays ___________________________________________________________________________________\
+
+
+rats = ["street", 'bubonic' 'cute']
+
+arr_acs = rats[0] #gets the first value of the array
+arr_len = len(rats) #length of an array
+
+def looparray():     #loop and print all the elements of an array 
+    for x in rats: 
+        print(x)
+
+
+rats.append("remy the") #adds elements to an array 
+rats.pop(0) #removes first element of an array (goodbye street rat </3)
+rats.remove("bubonic") #removes bubonic rat, goodbye x2
+
+
+# Classes and Objects ________________________________________________________________________
+
+
+
+
+#python is an object oriented programming langauge, and everything is an object with properties and methods
+#class is a blueprint for creating objects
+# example >> class: bear | object: polar bear, freddy fazbear
+# objects have attributes and behaviors, combination of functions and data
+
+class character:
+  def __init__(self, name, division):
+    self.name = name
+    self.division = division
+
+  def aotfunc(self):
+     print(self.name + "of the" + self.division)
+
+eren = character('eren', 'scouts')
+mikasa = character('mikasa', 'scouts')
+
+eren.aotfunc() 
+
+
+# self (or whatever you call it) is the first parameter and reference to instance of the class
+# used to access variables that belong to the class
+
+del eren.name # delete property 
+eren.name = 'eren yeager' # modify it afterwards 
+del eren 
+
+# if you have a class w/ no content, put in "pass" otherwise it'll produce an error
+
+class test:
+   pass
+
+
+
+# Inheritance ________________________________________________________________
+
+# parent class: base class 
+    # any class can be a parent class so the syntax is just the same
+# child class: class that inherits from another class, derived class
+
+
+class Soldier:
+  def __init__(self, fname, lname):
+    self.firstname = fname
+    self.lastname = lname
+
+  def printname(self):
+    print(self.firstname, self.lastname)
+
+Annie = Soldier("Annie", "Leonhart")
+
+
+class Scouts(Soldier):
+  def __init__(self, fname, lname, kills):
+    super().__init__(fname, lname)     #inherits all its properties from it's parent function 
+    self.titankills = kills
+
+
+  #def introduction(self):
+    #print(self.fname + self.lname ':' + kills)
+
+
+# Iterators _____________________________________________________________________________________
+
+# Object that contains a countable amount of values, can be iterated on menaning you can traverse through them
+# lists and tuples & even strings are iterable objects
+
+
+scouts = ('eren', 'mikasa', 'armin')
+
+def printscouts():
+  for x in scouts:
+    print(x)
+
+
+# Polymorphism
+
+ # class polymorphism > we can have multiple classes with same method name
+
+
+class Maria:
+  def __init__(self, name, location):
+    self.name = name
+    self.location = location
+
+  def attack(self):
+    print("The Colossal Titan has breached Wall" + self.name)
+
+class Rose:
+  def __init__(self, name, location):
+    self.name = name
+    self.location = location
+
+  def attack(self):
+    print("The Colossal Titan has breached Wall" + self.name)
+
+class Sina:
+  def __init__(self, name, location):
+    self.name = name
+    self.location = location
+
+  def attack(self):
+    print("The Female Titan has gotten inside Wall" + self.name)
+
+
+wall_maria = Maria("Maria", "Outer") # just realized this probably isnt the best example tbh but atleast it works
+wall_rose = Rose("Rose", "Middle")
+wall_sina = Sina("Sina", "Inner")
+
+def print_walls():
+  for x in (wall_maria, wall_rose, wall_sina):
+    print(x.name)
+    print(x.location)
+    x.attack()
+  
+
+
+# Scope ________________________________
+
+
+# variable is only available from inside the region its created >> this is called scope
+# variable created inside a function is the local scope of the function & can only be used inside the function
+
+def scope_test():
+  x = 1
+  def scope_inner():
+     print(x)            # can also be accessed inside a function of a function
+
+# global scope: created in main body, available from within both global and local scope
+
+scope_x: 1
+
+def global_test():
+   print(scope_x)
+
+
+# print(scope_x) #
+
+# if you have same name for global and local, its treated as separate variables 
+# if you need to create a global variable, but stuck inside a local scope, you can indicate global
+
+def global_test2():
+   global x 
+   x = 7
+
+
+
+# Module _______________________________________________________________
+
+# module is basically like a code library, it's a file containg a set of functions you want in your program
+
+
+#mymodule.greeting("Jonathan")
+
+
+
+# Dates
+
+# import datetime
+
+todays_date = datetime.datetime.now()
+todays_year = todays_date.year
+todays_weekdate = (x.strftime("%A"))
+
+# creating a date 
+
+creating_date = datetime.datetime(2023, 11, 10)
+
+
+
+# Math
+
+#built in math functions
+find_max = max(1,2,3) #gives you the highest value
+find_min = min(1,2,3) # gives you the lowest value
+find_abs = abs(-1) # gives you the absolute value
+find_power = pow(2, 4) # 2^4
+
+#imported math functions
+
+find_sqrt = math.sqrt(64)
+find_roundup = math.ciel(1.4) # rounds up, gives you 2
+find_rounddown = math.floor(1.4) # rounds down, gives you 1
+find_pi = math.pi # just gives you pi
+
+
+# User Input __________________________________________
+
+input_test = input("Enter your name")
+
+def print_input_test():
+   print("Welcome " + input_test)
+
+
+# JSON __________________________________________________
+
+# json: syntax for storing and exchanging data, text written with Javascript notation
+
+
+# Regex: Sequence of characters that forms a search pattern
+         # can be used to check if a string contains the specified search pattern
+         
+

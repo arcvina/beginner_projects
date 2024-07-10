@@ -1,0 +1,37 @@
+print("Welcome to temperature Converter")
+first_unit = input("Please enter your starting unit. F (Farenheit), C (Celsius), K(Kelvin) ")
+first_temp = float(input("Now enter the value of your starting temperature "))
+final_unit = input("What unit would you like to convert the temperature into? Enter F, C, or K ")
+final_temp = 0.0
+
+warning = "Please ensure that the starting unit differs from the unit you'd like to convert it into"
+
+def convert():
+    if (first_unit == 'F'):
+        if final_unit == 'C':
+            final_temp = (first_temp - 32) * 5/9
+        elif final_unit == 'K':
+            final_temp = (first_temp - 32) * 5/9 + 273.15 
+        else: 
+            print(warning)
+        
+    elif first_unit == 'C':
+        if final_unit == 'F':
+            final_temp = (first_temp * 9/5) + 32 
+        if final_unit == 'K':
+            final_temp = (first_temp + 273.15)
+        else:
+            print(warning)
+
+    elif first_unit == 'K':
+        if final_unit == 'F':
+            final_temp = (first_temp - 273.15) * 9/5 + 32
+        if final_unit == 'C':
+            final_temp = first_temp - 273.15
+        else:
+            print(warning)
+
+convert()
+print(str(first_temp) + first_unit + " is equal to " + str(final_temp) + final_unit)
+
+

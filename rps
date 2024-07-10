@@ -1,0 +1,67 @@
+import random
+
+print("Welcome to Rock Paper Scissors")
+
+def start_round():
+
+    user_input = input("What object would you like to play? Enter Rock, Paper, or Scissors ")
+    computer_choices = ['rock', 'paper', 'scissors']
+    computer_input =  random.choice(computer_choices)
+
+    print("The computer chose " + computer_input)
+
+
+# Comparision
+    
+    outcome = 0
+
+    if (user_input == 'rock'):
+                if (computer_input == 'rock'):
+                    outcome = 2
+                if (computer_input == 'paper'):
+                    outcome = 3
+                if (computer_input == 'scissors'):
+                    outcome = 1
+
+    if (user_input == 'paper'):
+                if (computer_input == 'rock'):
+                    outcome = 1
+                if (computer_input == 'paper'):
+                    outcome = 2
+                if (computer_input == 'scissors'):
+                    outcome = 3
+
+    if (user_input == 'scissors' ):
+                if (computer_input == 'rock'):
+                    outcome = 3
+                if (computer_input == 'paper'):
+                    outcome = 1
+                if (computer_input == 'scissors'):
+                    outcome = 2
+
+# Result
+
+    if(outcome == 1):
+            print("Congrats, You win!")
+    if(outcome == 2):
+            print("Tie.")
+    if(outcome == 3):
+            print("Sorry, you lose.")
+
+
+start_round()
+
+
+play_again = input("Would you like to play again? Respond with yes or no ")
+if (play_again == 'yes'):
+    start_round()
+if (play_again == 'no'):
+    print("Thank you for playing!")
+
+
+
+
+
+        
+
+    

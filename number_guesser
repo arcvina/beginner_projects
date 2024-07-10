@@ -1,0 +1,19 @@
+import random
+
+print("Welcome to Guess the Number! Guess the correct integer ranging from 1-100 to receive a cool prize. Best of luck")
+
+number = random.randint(1, 100)
+
+while True:
+    
+    user_guess = int(input("Firstly, input your guess: "))
+
+    if user_guess == number:
+        print("Congrats, you win :D! Here is a cookie")
+        break
+    elif user_guess > number:
+        print("Sorry, too high-- try again")
+    elif user_guess < number:
+        print("Sorry too low, try again")
+
+
